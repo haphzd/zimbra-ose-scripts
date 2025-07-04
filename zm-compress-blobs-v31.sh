@@ -3,7 +3,7 @@
 export log_file='/tmp/zm-compress-blobs.log'
 compression_threshold='+32k' #minimal file size to apply compression (find command syntax); Zimbra default is 4096 bytes
 older_than='180' #days
-export store_root='/opt/zimbra/storexp/0/'
+export store_root='/opt/zimbra/store/0/'
 
 #rm -f /tmp/zm-compress-blobs.log
 echo '0' > /tmp/prev_id
@@ -58,7 +58,7 @@ zmblobaction()
             printf "=%s\n" "$l" >> $log_file
             #Force update link with a new inode of compressed file
             ln -f $1 $l
-            echo "Updated hardlink."
+            echo "Hard link has been updated."
         done
         echo "Done!"
     fi
